@@ -38,6 +38,7 @@ interval_max = 6
 nb_notes = 10
 note_given = "A-4"
 fluidsynth_sf2 = '/home/lemezoth/Downloads/Nice-Steinway-v3.8.sf2'
+nb_generate = 50
 
 ################################################
 # Export functions
@@ -58,7 +59,7 @@ def export_wav(track, bpm=50, file_name="output"):
 	os.remove('output.mid')
 
 def export_movie(file_name_audio="output", file_name_score="score", file_name_score_default="score_default"):
-	file_name_movie = 'dictee_%s.mp4'%(dictee_number)
+	file_name_movie = 'output/'+'dictee_%s.mp4'%(dictee_number)
 	print("export movie", file_name_movie)
 
 	# Export video with sound
@@ -87,7 +88,7 @@ def export_movie(file_name_audio="output", file_name_score="score", file_name_sc
 
 ################################################
 
-for dictee_number in range(3):
+for dictee_number in range(nb_generate):
 	# Initial track with the given note
 	t = Track()
 	t + note_given
